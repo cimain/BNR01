@@ -34,7 +34,8 @@ int main(int argc, const char * argv[])
         
         //NSlogs of the program
         NSLog(@"yann is %.2f meters tall and weighs %d kilograms", height, weight);
-        NSLog(@"Employee %u hired on %@", yann.employeeID, yann.hireDate);
+        NSDate *date = yann.hireDate;
+        NSLog(@"Employee %@ hired on %@", yann, date);
         
     //Log some values using custom methods
         float bmi = [yann bodyMassIndex];

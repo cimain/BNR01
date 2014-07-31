@@ -10,6 +10,11 @@
 
 @implementation BNREmployee
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<Employee %d>", self.employeeID];
+}
+
 - (double)yearsofEmployment
 {
     //Do I have a non-nil hireDate?
