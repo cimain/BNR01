@@ -7,8 +7,41 @@
 //
 
 #import "BNREmployee.h"
+#import "BNRAsset.h"
 
 @implementation BNREmployee
+
+//Accessors for assets properties
+- (void)setAssets:(NSArray *)a
+{
+    _assets = [a mutableCopy];
+}
+
+- (NSArray *)assets
+{
+    return [_assets copy];
+}
+
+- (void)addAsset:(BNRAsset *)a
+{
+    //Is assets nil?
+    if (!_assets)
+    {
+        //Create the array
+        _assets = [[NSMutableArray alloc] init];
+    }
+}
+
+- (unsigned int)valueOfAssets
+{
+    //Sum up the resale value of assets
+    unsigned int sum = 0;
+    for (BNRAsset *a in _assets)
+    {
+        sum += [a resalValue];
+    }
+    return sum;
+}
 
 - (NSString *)description
 {
@@ -30,7 +63,5 @@
         return 0;
     }
 }
-
-
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D015CF6A198BCA8E0024E6A3 /* BNRAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = D015CF69198BCA8E0024E6A3 /* BNRAsset.m */; };
 		D04C7DF11975348E007339D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04C7DF01975348E007339D0 /* Foundation.framework */; };
 		D04C7DF41975348E007339D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D04C7DF31975348E007339D0 /* main.m */; };
 		D04C7DF81975348E007339D0 /* BMITime.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = D04C7DF71975348E007339D0 /* BMITime.1 */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D015CF68198BCA8E0024E6A3 /* BNRAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRAsset.h; sourceTree = "<group>"; };
+		D015CF69198BCA8E0024E6A3 /* BNRAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRAsset.m; sourceTree = "<group>"; };
 		D04C7DED1975348E007339D0 /* BMITime */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BMITime; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04C7DF01975348E007339D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D04C7DF31975348E007339D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,6 +57,8 @@
 		D04C7DE41975348E007339D0 = {
 			isa = PBXGroup;
 			children = (
+				D015CF68198BCA8E0024E6A3 /* BNRAsset.h */,
+				D015CF69198BCA8E0024E6A3 /* BNRAsset.m */,
 				D04C7DFE197534E9007339D0 /* BNRPerson.h */,
 				D04C7DFF197534E9007339D0 /* BNRPerson.m */,
 				D0777999197EA71400735894 /* BNREmployee.h */,
@@ -152,6 +157,7 @@
 				D077799B197EA71400735894 /* BNREmployee.m in Sources */,
 				D04C7DF41975348E007339D0 /* main.m in Sources */,
 				D04C7E00197534E9007339D0 /* BNRPerson.m in Sources */,
+				D015CF6A198BCA8E0024E6A3 /* BNRAsset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
