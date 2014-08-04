@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BMITime/BNREmployee.m"
-            timestampString = "428855322.404882"
+            timestampString = "428860513.606118"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-description"
             landmarkType = "5">
          </BreakpointContent>
