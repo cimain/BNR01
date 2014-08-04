@@ -9,12 +9,16 @@
 #import <Foundation/Foundation.h>
 //#import "BNRPerson.h"
 #import "BNREmployee.h"
+#import "BNRAsset.h"
 
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-   
+
+        
+/* Original BMI version
+ 
     //Create an instance of BNREmployee
         BNREmployee *yann = [[BNREmployee alloc] init];
         
@@ -42,7 +46,53 @@ int main(int argc, const char * argv[])
         double years = [yann yearsofEmployment];
         NSLog(@"BMI of %.2f, has worked with us for %.2f years", bmi, years);
         //NSLog(@"yann has a BMI index of %f", bmi);
-    
+
+*/
+ 
+        //Create an array of BNREmployee objects
+        NSMutableArray *employees = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < 10; i++)
+        {
+            //Create an instance for BNREmployee
+            BNREmployee *yann = [[BNREmployee alloc] init];
+            
+            //Give the instance variables interesting values
+            yann.weightInKilos = 63 + i;
+            yann.heightInMeters = 1.79 - i/10.0;
+            yann.employeeID = i;
+            
+            //Put the employee in the employees array
+            [employees addObject:yann];
+        }
+        
+        //Create 10 assests
+        for (int i = 0; i < 10; i++)
+        {
+            //Create an asset
+            BNRAsset *asset = [[BNRAsset alloc] init];
+            
+            //Give an interesting label
+            NSString *currentLabel = [NSString stringWithFormat:@"Laptop %d", i];
+            asset.label = currentLabel;
+            asset.resalValue = 350 + i * 17;
+            
+            //Get a random number between 0 and 9 inclusive
+            NSUInteger randomIndex = random() % [employees count];
+            
+            //Find that employee
+            BNREmployee *randomEmployee = [employees objectAtIndex:randomIndex];
+            
+            //Assign the asset to the employee
+            [randomEmployee addAsset:asset];
+        }
+ 
+        NSLog(@"Employees: %@", employees);
+        NSLog(@"Giving up ownership of one employee");
+        [employees removeObjectAtIndex:5];
+        NSLog(@"Giving up ownership of arrays");
+        employees = nil;
+        
     }
     return 0;
 }
