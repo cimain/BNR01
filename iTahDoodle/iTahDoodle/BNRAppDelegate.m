@@ -8,12 +8,34 @@
 
 #import "BNRAppDelegate.h"
 
+//Helper function to fetch the path to our to-do data stored on disk
+NSString *BNRDocPath()
+{
+    NSArray *pathList = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [pathList[0] stringByAppendingPathComponent:@"data.td"];
+}
+
 @implementation BNRAppDelegate
 
 #pragma mark -Application delegate callbacks
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    //Create an empty array to get us started
+//    self.tasks = [NSMutableArray array];
+
+    //Load an existing dataset or create a new one
+    NSArray *plist = [NSArray arrayWithContentsOfFile:BNRDocPath()];
+    if (plist) {
+        //We have a dataset, copy it into tasks
+        self.tasks = [plist mutableCopy];
+    }
+    else
+    {
+        //There is no dataset; create an empty array
+        self.tasks = [NSMutableArray array];
+    }
+    
     // Create and configure the UIWindow instance
     // A CGRect is a struct with an origin (x,y) and a size (width,height)
     CGRect winFrame = [[UIScreen mainScreen] bounds];
@@ -31,6 +53,11 @@
     self.taskTable = [[UITableView alloc] initWithFrame:tableFrame
                                                   style:UITableViewStylePlain];
     self.taskTable.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    //Make the BNRAppleDelegate the table view's dataSource
+    self.taskTable.dataSource = self;
+    
+    
     
     // Tell the table view which class to instantiate whenever it
     // needs to create a new cell
@@ -75,6 +102,10 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    //Save our tasks array to disk
+    [self.tasks writeToFile:BNRDocPath() atomically:YES];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -105,14 +136,42 @@
         return;
     }
     
-    //Log text to console
-    NSLog(@"Task entered: %@", text);
+//    //Log text to console
+//    NSLog(@"Task entered: %@", text);
+    
+    //Add it to the working array
+    [self.tasks addObject:text];
+    
+    //Refres the table so thet thge new item shows up
+    [self.taskTable reloadData];
     
     //Clear out the text field
     [self.taskField setText:@""];
     
     //Dismiss the keyboard
     [self.taskField resignFirstResponder];
+}
+
+#pragma mark - Table view management
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    //Because this table view only has one section, the number of rows in it is equal to the number of items in the tasks array
+    return [self.tasks count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //To improve performance, this method first checks for an existing cell object that we can reuse
+    //If there isn't one, the a new cell is created
+    UITableViewCell *c = [self.taskTable dequeueReusableCellWithIdentifier:@"Cell"];
+    
+    //Then we (re)configure the cell on the model object, in this case teh tasls array,...
+    NSString *item = [self.tasks objectAtIndex:indexPath.row];
+    c.textLabel.text = item;
+    
+    //... and hand the properly configured cell back to the table view
+    return c;
 }
 
 @end

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BNRAppDelegate : UIResponder <UIApplicationDelegate>
+//Declare a helper function that you will user to get a path to the location on disl where you can save to the to-do list
+NSString *BNRDocPath(void);
+
+@interface BNRAppDelegate : UIResponder <UIApplicationDelegate, UITableViewDataSource  >
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic) UITableView *taskTable;
