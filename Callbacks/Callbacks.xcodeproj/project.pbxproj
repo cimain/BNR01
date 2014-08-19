@@ -11,6 +11,7 @@
 		D0152FEE19951DE0004DE542 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0152FED19951DE0004DE542 /* main.m */; };
 		D0152FF219951DE0004DE542 /* Callbacks.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = D0152FF119951DE0004DE542 /* Callbacks.1 */; };
 		D0152FFA19951EE5004DE542 /* BNRLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D0152FF919951EE5004DE542 /* BNRLogger.m */; };
+		D0879A8B19A3A03C0092BCE6 /* BNRObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = D0879A8A19A3A03C0092BCE6 /* BNRObserver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		D0152FF119951DE0004DE542 /* Callbacks.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Callbacks.1; sourceTree = "<group>"; };
 		D0152FF819951EE5004DE542 /* BNRLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRLogger.h; sourceTree = "<group>"; };
 		D0152FF919951EE5004DE542 /* BNRLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRLogger.m; sourceTree = "<group>"; };
+		D0879A8919A3A03C0092BCE6 /* BNRObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRObserver.h; sourceTree = "<group>"; };
+		D0879A8A19A3A03C0092BCE6 /* BNRObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRObserver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,8 @@
 		D0152FDE19951DE0004DE542 = {
 			isa = PBXGroup;
 			children = (
+				D0879A8919A3A03C0092BCE6 /* BNRObserver.h */,
+				D0879A8A19A3A03C0092BCE6 /* BNRObserver.m */,
 				D0152FF819951EE5004DE542 /* BNRLogger.h */,
 				D0152FF919951EE5004DE542 /* BNRLogger.m */,
 				D0152FEC19951DE0004DE542 /* Callbacks */,
@@ -145,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0152FFA19951EE5004DE542 /* BNRLogger.m in Sources */,
+				D0879A8B19A3A03C0092BCE6 /* BNRObserver.m in Sources */,
 				D0152FEE19951DE0004DE542 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +265,7 @@
 				D0152FF719951DE0004DE542 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
